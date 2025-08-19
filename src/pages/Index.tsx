@@ -7,7 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Icon from '@/components/ui/icon'
 
 const Index = () => {
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Europe/Moscow' }))
+  const [moscowTime, setMoscowTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Europe/Moscow' }))
+  const [sakhalinTime, setSakhalinTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Sakhalin' }))
+  const [vladivostokTime, setVladivostokTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Vladivostok' }))
+  const [uralTime, setUralTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Yekaterinburg' }))
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([])
   const [guaranteeAmount, setGuaranteeAmount] = useState('')
   const [dragActive, setDragActive] = useState(false)
@@ -15,7 +18,10 @@ const Index = () => {
   // Update time every second
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Europe/Moscow' }))
+      setMoscowTime(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Europe/Moscow' }))
+      setSakhalinTime(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Sakhalin' }))
+      setVladivostokTime(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Vladivostok' }))
+      setUralTime(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Yekaterinburg' }))
     }, 1000)
     return () => clearInterval(interval)
   }, [])
@@ -60,9 +66,35 @@ const Index = () => {
               <Icon name="Building2" className="text-primary" size={32} />
               <h1 className="text-2xl font-bold text-gray-900">БАНКОВСКИЕ ГАРАНТИИ.РУ</h1>
             </div>
-            <div className="flex items-center space-x-2 text-lg font-medium text-gray-700">
-              <Icon name="Clock" size={20} />
-              <span id="current-time">{currentTime}</span>
+            <div className="flex items-center space-x-6 text-sm font-medium text-gray-700">
+              <div className="flex items-center space-x-2">
+                <Icon name="Clock" size={16} />
+                <div className="text-right">
+                  <div className="text-xs text-gray-500">Москва</div>
+                  <div>{moscowTime}</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Icon name="Clock" size={16} />
+                <div className="text-right">
+                  <div className="text-xs text-gray-500">Урал</div>
+                  <div>{uralTime}</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Icon name="Clock" size={16} />
+                <div className="text-right">
+                  <div className="text-xs text-gray-500">Владивосток</div>
+                  <div>{vladivostokTime}</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Icon name="Clock" size={16} />
+                <div className="text-right">
+                  <div className="text-xs text-gray-500">Сахалин</div>
+                  <div>{sakhalinTime}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
