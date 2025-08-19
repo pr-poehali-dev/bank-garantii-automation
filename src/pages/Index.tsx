@@ -3,10 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Progress } from '@/components/ui/progress'
-import { Badge } from '@/components/ui/badge'
 import Icon from '@/components/ui/icon'
 
 const Index = () => {
@@ -51,30 +48,7 @@ const Index = () => {
     }
   }
 
-  const applicationStatuses = [
-    { id: 1, client: 'ООО "Строй-Альянс"', amount: '15 000 000 ₽', status: 'approved', progress: 100 },
-    { id: 2, client: 'АО "ТехПром"', amount: '8 500 000 ₽', status: 'review', progress: 65 },
-    { id: 3, client: 'ИП Петров А.С.', amount: '2 300 000 ₽', status: 'documents', progress: 30 },
-    { id: 4, client: 'ООО "МегаСтрой"', amount: '45 000 000 ₽', status: 'pending', progress: 10 },
-  ]
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'approved': return 'bg-green-100 text-green-800'
-      case 'review': return 'bg-blue-100 text-blue-800'
-      case 'documents': return 'bg-yellow-100 text-yellow-800'
-      default: return 'bg-gray-100 text-gray-800'
-    }
-  }
-
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case 'approved': return 'Одобрено'
-      case 'review': return 'На рассмотрении'
-      case 'documents': return 'Нужны документы'
-      default: return 'В ожидании'
-    }
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -212,42 +186,7 @@ const Index = () => {
           </Card>
         </div>
 
-        {/* Application Status Tracker */}
-        <Card className="animate-fade-in">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <Icon name="BarChart3" className="text-primary" />
-              <span>Трекер заявок</span>
-            </CardTitle>
-            <CardDescription>
-              Отслеживайте статус ваших заявок в режиме реального времени
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {applicationStatuses.map((app) => (
-                <div key={app.id} className="border rounded-lg p-4 space-y-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-semibold">{app.client}</h4>
-                      <p className="text-2xl font-bold text-primary">{app.amount}</p>
-                    </div>
-                    <Badge className={getStatusColor(app.status)}>
-                      {getStatusText(app.status)}
-                    </Badge>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-gray-600">
-                      <span>Прогресс обработки</span>
-                      <span>{app.progress}%</span>
-                    </div>
-                    <Progress value={app.progress} className="h-2" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-6 animate-fade-in">
