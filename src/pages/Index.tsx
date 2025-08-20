@@ -204,9 +204,8 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           {/* Step 2: Document Upload */}
           <Card className="animate-scale-in">
