@@ -469,8 +469,8 @@ const Index = () => {
                   <p className="text-sm text-gray-700">Приказ + решение о назначении генерального директора</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
 
