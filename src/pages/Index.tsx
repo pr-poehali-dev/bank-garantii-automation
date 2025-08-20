@@ -102,12 +102,21 @@ const Index = () => {
 
       <div className="container mx-auto px-4 py-8 space-y-8">
         {/* Hero Section */}
-        <div className="text-center space-y-4 animate-fade-in">
-          <h2 className="text-3xl font-bold text-gray-900">Автоматизированная система выпуска банковских гарантий</h2>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-            Мы официальные партнеры многих банков России! Сайт создан в целях автоматизации выпуска банковской гарантии, 
-            чтобы уйти от телефонных переговоров и сразу же приступить к оформлению банковской гарантии.
-          </p>
+        <div className="text-center space-y-6 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Автоматизированная система выпуска <span className="text-primary">банковских гарантий</span>
+          </h2>
+          <div className="text-lg text-gray-600 max-w-4xl mx-auto space-y-4">
+            <p className="text-xl font-semibold text-primary">
+              Мы официальные партнеры многих банков России!
+            </p>
+            <p>
+              Сайт создан в целях автоматизации выпуска банковской гарантии, для того чтобы уйти от телефонных переговоров, а сразу же приступить к оформлению банковской гарантии. Для этого вам нужно лишь один раз подать заявку и получить уже готовое решение от банков!
+            </p>
+            <p className="text-lg font-medium">
+              Все ссылки на подписания будут приходить к вам на почту. В случае дополнительных документов наш менеджер с вами свяжется по почте или в удобном для вас мессенджере.
+            </p>
+          </div>
         </div>
 
         {/* Step-by-step Process */}
