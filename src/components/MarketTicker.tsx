@@ -30,14 +30,14 @@ const MarketTicker = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 overflow-hidden relative">
-      <div className="animate-scroll flex whitespace-nowrap">
+    <div className="bg-blue-700 text-white py-3 overflow-hidden">
+      <div className="animate-scroll flex whitespace-nowrap items-center">
         {[...marketData, ...marketData].map((item, index) => (
-          <div key={index} className="flex items-center mx-8 min-w-0">
-            <span className="mr-2 text-lg">{item.symbol}</span>
-            <span className="font-semibold mr-2">{item.currency}:</span>
-            <span className="mr-2">{item.value.toFixed(2)} ₽</span>
-            <span className={`text-sm ${item.change >= 0 ? 'text-green-300' : 'text-red-300'}`}>
+          <div key={index} className="flex items-center mx-6 text-sm font-medium">
+            <span className="mr-2 text-base">{item.symbol}</span>
+            <span className="font-bold mr-2 text-white">{item.currency}:</span>
+            <span className="mr-2 text-white">{item.value.toFixed(2)} ₽</span>
+            <span className={`font-semibold ${item.change >= 0 ? 'text-green-200' : 'text-red-200'}`}>
               {item.change >= 0 ? '+' : ''}{item.change.toFixed(2)}
             </span>
           </div>
