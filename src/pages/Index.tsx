@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import Icon from '@/components/ui/icon'
 import MarketTicker from '@/components/MarketTicker'
+import YandexFormModal from '@/components/YandexFormModal'
 
 const Index = () => {
   const [moscowTime, setMoscowTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Europe/Moscow' }))
@@ -419,10 +420,12 @@ const Index = () => {
                   <Input id="tender-link" placeholder="https://zakupki.gov.ru/..." />
                 </div>
               </div>
-              <Button className="w-full" size="lg">
-                <Icon name="Send" className="mr-2" size={20} />
-                Подать заявку
-              </Button>
+              <YandexFormModal>
+                <Button className="w-full" size="lg">
+                  <Icon name="Send" className="mr-2" size={20} />
+                  Подать заявку
+                </Button>
+              </YandexFormModal>
             </CardContent>
           </Card>
 
