@@ -444,35 +444,107 @@ const Index = () => {
               <div className="space-y-3">
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">1</div>
-                  <p className="text-sm text-gray-700">Реестровый № торгов/ссылка на закупку</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Реестровый № торгов/ссылка на закупку</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">2</div>
-                  <p className="text-sm text-gray-700">Бух. Бал. по Ф1 и Ф2 за 2024г. (в скане с квитанцией о приеме и о вводе сведений)</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Бух. Бал. по Ф1 и Ф2 за 2024г. (в скане с квитанцией о приеме и о вводе сведений)</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">3</div>
-                  <p className="text-sm text-gray-700">Бух. Бал. по Ф1 и Ф2 за 2 кв. 2025г. (промежуточный, в скане с подписью, печатью организации) – только если сможете сформировать</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Бух. Бал. по Ф1 и Ф2 за 2 кв. 2025г. (промежуточный, в скане с подписью, печатью организации) – только если сможете сформировать</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">4</div>
-                  <p className="text-sm text-gray-700">Действующий договор аренды/собственности помещения</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Действующий договор аренды/собственности помещения</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">5</div>
-                  <p className="text-sm text-gray-700">Паспорта руководителей и учредителей (все страницы, включая пустые), доля которых равна или свыше 5%</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Паспорта руководителей и учредителей (все страницы, включая пустые), доля которых равна или свыше 5%</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">6</div>
-                  <p className="text-sm text-gray-700">Карточка с реквизитами организации (желательно в word формате)</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Карточка с реквизитами организации (желательно в word формате)</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">7</div>
-                  <p className="text-sm text-gray-700">Устав</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Устав</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                   <div className="w-6 h-6 bg-primary text-white text-sm rounded-full flex items-center justify-center font-bold flex-shrink-0 mt-0.5">8</div>
-                  <p className="text-sm text-gray-700">Приказ + решение о назначении генерального директора</p>
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">Приказ + решение о назначении генерального директора</p>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
+                        <Icon name="Paperclip" size={16} />
+                        <span>Прикрепить файл</span>
+                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
