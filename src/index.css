@@ -13,11 +13,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 216 91% 32%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 13% 18%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 85% 20%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 19% 27%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -90,6 +90,8 @@
   }
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @layer base {
   * {
     @apply border-border;
@@ -97,6 +99,26 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
   }
 }
 
