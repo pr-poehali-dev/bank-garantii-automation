@@ -13,9 +13,10 @@ const Index = () => {
   const [sakhalinTime, setSakhalinTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Sakhalin' }))
   const [vladivostokTime, setVladivostokTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Vladivostok' }))
   const [uralTime, setUralTime] = useState(new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Yekaterinburg' }))
-  const [uploadedFiles, setUploadedFiles] = useState<string[]>([])
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
   const [guaranteeAmount, setGuaranteeAmount] = useState('')
   const [dragActive, setDragActive] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Update time every second
   useEffect(() => {
@@ -44,15 +45,59 @@ const Index = () => {
     setDragActive(false)
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      const fileName = e.dataTransfer.files[0].name
-      setUploadedFiles(prev => [...prev, fileName])
+      const file = e.dataTransfer.files[0]
+      setUploadedFiles(prev => [...prev, file])
     }
   }
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const fileName = e.target.files[0].name
-      setUploadedFiles(prev => [...prev, fileName])
+      const file = e.target.files[0]
+      setUploadedFiles(prev => [...prev, file])
+    }
+  }
+
+  const handleDocumentUpload = (file: File) => {
+    setUploadedFiles(prev => [...prev, file])
+  }
+
+  const sendEmailWithAttachments = async () => {
+    if (uploadedFiles.length === 0) {
+      alert('Пожалуйста, прикрепите документы перед отправкой заявки')
+      return
+    }
+
+    setIsSubmitting(true)
+    
+    try {
+      const formData = new FormData()
+      formData.append('api_key', 'ba42c3d9-0cfe-43b4-816a-cbe491f04fca')
+      formData.append('to', 'garantiya25@mail.ru')
+      formData.append('subject', 'Новая заявка на банковскую гарантию')
+      formData.append('text', `Новая заявка на банковскую гарантию.
+
+Количество прикрепленных документов: ${uploadedFiles.length}`)
+      
+      uploadedFiles.forEach((file, index) => {
+        formData.append(`attachment_${index}`, file)
+      })
+
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+        method: 'POST',
+        body: formData
+      })
+
+      if (response.ok) {
+        alert('Заявка успешно отправлена!')
+        setUploadedFiles([])
+      } else {
+        throw new Error('Ошибка отправки')
+      }
+    } catch (error) {
+      console.error('Ошибка:', error)
+      alert('Произошла ошибка при отправке заявки. Попробуйте еще раз.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -265,7 +310,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -278,7 +332,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -291,7 +354,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -304,7 +376,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -317,7 +398,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -330,7 +420,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -343,7 +442,16 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
@@ -356,20 +464,56 @@ const Index = () => {
                       <label className="flex items-center space-x-2 cursor-pointer text-sm text-primary hover:text-primary/80">
                         <Icon name="Paperclip" size={16} />
                         <span>Прикрепить файл</span>
-                        <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                              handleDocumentUpload(e.target.files[0])
+                            }
+                          }}
+                        />
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {uploadedFiles.length > 0 && (
+                <div className="mt-6 space-y-2">
+                  <h4 className="font-medium">Загруженные документы:</h4>
+                  {uploadedFiles.map((file, index) => (
+                    <div key={index} className="flex items-center justify-between p-2 bg-green-50 rounded">
+                      <div className="flex items-center space-x-2">
+                        <Icon name="FileCheck" className="text-green-600" size={16} />
+                        <span className="text-sm">{file.name}</span>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setUploadedFiles(prev => prev.filter((_, i) => i !== index))
+                        }}
+                      >
+                        <Icon name="X" size={14} />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
               
               <div className="mt-8 text-center">
-                <YandexFormModal>
-                  <Button className="w-full max-w-md mx-auto" size="lg" id="submit-application">
-                    <Icon name="Send" className="mr-2" size={20} />
-                    Подать заявку
-                  </Button>
-                </YandexFormModal>
+                <Button 
+                  className="w-full max-w-md mx-auto" 
+                  size="lg" 
+                  id="submit-application"
+                  onClick={sendEmailWithAttachments}
+                  disabled={isSubmitting}
+                >
+                  <Icon name="Send" className="mr-2" size={20} />
+                  {isSubmitting ? 'Отправка...' : 'Подать заявку'}
+                </Button>
               </div>
             </CardContent>
           </Card>
