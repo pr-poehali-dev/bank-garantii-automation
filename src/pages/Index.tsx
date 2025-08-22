@@ -106,41 +106,49 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Top Running Line with Clock */}
+      <div className="bg-primary text-primary-foreground py-2 overflow-hidden relative">
+        <div className="flex items-center justify-between">
+          <div className="animate-scroll whitespace-nowrap">
+            <span className="mx-8">Надёжное оформление банковских гарантий</span>
+            <span className="mx-8">От 1 дня до получения документов</span>
+            <span className="mx-8">Лицензированный банк-партнёр</span>
+            <span className="mx-8">Круглосуточная поддержка</span>
+          </div>
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-4 text-sm font-mono">
+            <div>Москва: {moscowTime}</div>
+            <div>Владивосток: {vladivostokTime}</div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20"></div>
-        <div className="relative container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 animate-fade-in">
-              банковские гарантии <span className="text-blue-600 text-5xl md:text-6xl">.ru</span>
-            </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8 animate-fade-in-delay">
-              Быстрое оформление банковских гарантий для участия в тендерах и государственных закупках
-            </p>
+        <div className="relative">
+          <div className="flex items-center min-h-[60vh]">
+            {/* Left Side - Large Title */}
+            <div className="w-1/3 pl-8">
+              <h1 className="text-6xl xl:text-8xl font-bold text-primary leading-tight">
+                БАНКОВСКИЕ<br/>
+                ГАРАНТИИ<br/>
+                <span className="text-blue-600">.RU</span>
+              </h1>
+            </div>
             
-            {/* Time Display */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                <div className="text-xs text-slate-500 mb-1">Москва</div>
-                <div className="font-mono text-sm font-semibold text-slate-700">{moscowTime}</div>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                <div className="text-xs text-slate-500 mb-1">Урал</div>
-                <div className="font-mono text-sm font-semibold text-slate-700">{uralTime}</div>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                <div className="text-xs text-slate-500 mb-1">Владивосток</div>
-                <div className="font-mono text-sm font-semibold text-slate-700">{vladivostokTime}</div>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                <div className="text-xs text-slate-500 mb-1">Сахалин</div>
-                <div className="font-mono text-sm font-semibold text-slate-700">{sakhalinTime}</div>
+            {/* Right Side - Content */}
+            <div className="w-2/3 px-8">
+              <div className="max-w-3xl">
+                <p className="text-2xl text-slate-600 mb-8 leading-relaxed">
+                  Профессиональное оформление банковских гарантий<br/>
+                  для участия в тендерах и государственных закупках
+                </p>
+                
+                {/* Market Ticker */}
+                <MarketTicker />
               </div>
             </div>
           </div>
-
-          {/* Market Ticker */}
-          <MarketTicker />
         </div>
       </div>
 
@@ -148,7 +156,7 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto space-y-8">
           
-          {/* Step 1: Choose Guarantee Amount */}
+          {/* Step 1: Choose Guarantee Type */}
           <Card className="animate-scale-in">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -156,37 +164,37 @@ const Index = () => {
                 <span>Выберите тип гарантии</span>
               </CardTitle>
               <CardDescription>
-                Выберите подходящую сумму банковской гарантии для вашего тендера
+                Профессиональное оформление банковских гарантий различных типов
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 500К</div>
-                    <div className="text-sm text-muted-foreground mb-3">От 2.5% годовых</div>
-                    <Badge variant="secondary" className="text-xs">Малый бизнес</Badge>
+                    <div className="text-lg font-bold text-primary mb-2">Коммерческая гарантия</div>
+                    <div className="text-sm text-muted-foreground mb-3">от 1 000 до 5 000 000 руб.</div>
+                    <Badge variant="secondary" className="text-xs">От 1.5% годовых</Badge>
                   </CardContent>
                 </Card>
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 2М</div>
-                    <div className="text-sm text-muted-foreground mb-3">От 2.2% годовых</div>
-                    <Badge variant="secondary" className="text-xs">Средний бизнес</Badge>
+                    <div className="text-lg font-bold text-primary mb-2">Экспресс гарантия</div>
+                    <div className="text-sm text-muted-foreground mb-3">от 1 000 до 5 000 000 руб.</div>
+                    <Badge variant="secondary" className="text-xs">От 2.5% (за 1 день)</Badge>
                   </CardContent>
                 </Card>
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 10М</div>
-                    <div className="text-sm text-muted-foreground mb-3">От 2.0% годовых</div>
-                    <Badge variant="secondary" className="text-xs">Крупный бизнес</Badge>
+                    <div className="text-lg font-bold text-primary mb-2">Стандартная гарантия</div>
+                    <div className="text-sm text-muted-foreground mb-3">от 10 000 до 100 000 000 руб.</div>
+                    <Badge variant="secondary" className="text-xs">От 2.0% годовых</Badge>
                   </CardContent>
                 </Card>
                 <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">свыше 10М</div>
-                    <div className="text-sm text-muted-foreground mb-3">Индивидуально</div>
-                    <Badge variant="secondary" className="text-xs">VIP клиенты</Badge>
+                    <div className="text-lg font-bold text-primary mb-2">Корпоративная гарантия</div>
+                    <div className="text-sm text-muted-foreground mb-3">от 100 000 000 руб. и больше</div>
+                    <Badge variant="secondary" className="text-xs">Индивидуально</Badge>
                   </CardContent>
                 </Card>
               </div>
