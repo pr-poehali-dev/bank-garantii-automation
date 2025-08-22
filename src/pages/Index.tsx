@@ -162,7 +162,7 @@ const Index = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Commercial Guarantee */}
-              <div className="group cursor-pointer">
+              <div className="group cursor-pointer" onClick={() => document.getElementById('submit-application')?.scrollIntoView({ behavior: 'smooth' })}>
                 <div className="relative p-8 bg-gradient-to-br from-white to-blue-50 rounded-2xl border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <Icon name="Building2" className="mx-auto mb-6 text-blue-600" size={48} />
@@ -174,7 +174,7 @@ const Index = () => {
               </div>
 
               {/* Express Guarantee 1-5M */}
-              <div className="group cursor-pointer">
+              <div className="group cursor-pointer" onClick={() => document.getElementById('submit-application')?.scrollIntoView({ behavior: 'smooth' })}>
                 <div className="relative p-8 bg-gradient-to-br from-white to-amber-50 rounded-2xl border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <Icon name="Zap" className="mx-auto mb-6 text-amber-600" size={48} />
@@ -186,7 +186,7 @@ const Index = () => {
               </div>
 
               {/* Guarantee 10-100M */}
-              <div className="group cursor-pointer">
+              <div className="group cursor-pointer" onClick={() => document.getElementById('submit-application')?.scrollIntoView({ behavior: 'smooth' })}>
                 <div className="relative p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl border border-emerald-100 hover:border-emerald-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-emerald-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <Icon name="TrendingUp" className="mx-auto mb-6 text-emerald-600" size={48} />
@@ -198,7 +198,7 @@ const Index = () => {
               </div>
 
               {/* Guarantee 100M+ */}
-              <div className="group cursor-pointer">
+              <div className="group cursor-pointer" onClick={() => document.getElementById('submit-application')?.scrollIntoView({ behavior: 'smooth' })}>
                 <div className="relative p-8 bg-gradient-to-br from-white to-purple-50 rounded-2xl border border-purple-100 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <Icon name="Crown" className="mx-auto mb-6 text-purple-600" size={48} />
@@ -211,193 +211,13 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Step 2: Document Upload */}
+
+
+          {/* Step 2: Details */}
           <Card className="animate-scale-in">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</div>
-                <span>Шаг. Нажмите скрепку, подгрузите документы</span>
-              </CardTitle>
-              <CardDescription>Перечень документов указан ниже</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Commercial Guarantee Documents */}
-                <Card className="border border-gray-200">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center space-x-2">
-                      <Icon name="Building2" className="text-primary" size={20} />
-                      <span>Коммерческая банковская гарантия</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div 
-                      className={`border-2 border-dashed rounded-lg p-4 text-center transition-colors ${
-                        dragActive ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-primary/50'
-                      }`}
-                      onDragEnter={handleDrag}
-                      onDragLeave={handleDrag}
-                      onDragOver={handleDrag}
-                      onDrop={handleDrop}
-                    >
-                      <Icon name="Paperclip" size={32} className="mx-auto mb-2 text-gray-400" />
-                      <p className="text-sm mb-2">Загрузить документы</p>
-                      <input
-                        type="file"
-                        id="commercial-upload"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        multiple
-                      />
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => document.getElementById('commercial-upload')?.click()}
-                      >
-                        <Icon name="Paperclip" className="mr-2" size={16} />
-                        Выбрать файлы
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Express Guarantee Documents */}
-                <Card className="border border-gray-200">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center space-x-2">
-                      <Icon name="Zap" className="text-secondary" size={20} />
-                      <span>Экспресс гарантия от 1000 рублей до 5 миллионов</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div 
-                      className={`border-2 border-dashed rounded-lg p-4 text-center transition-colors ${
-                        dragActive ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-primary/50'
-                      }`}
-                      onDragEnter={handleDrag}
-                      onDragLeave={handleDrag}
-                      onDragOver={handleDrag}
-                      onDrop={handleDrop}
-                    >
-                      <Icon name="Paperclip" size={32} className="mx-auto mb-2 text-gray-400" />
-                      <p className="text-sm mb-2">Загрузить документы</p>
-                      <input
-                        type="file"
-                        id="express-upload"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        multiple
-                      />
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => document.getElementById('express-upload')?.click()}
-                      >
-                        <Icon name="Paperclip" className="mr-2" size={16} />
-                        Выбрать файлы
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Medium Guarantee Documents */}
-                <Card className="border border-gray-200">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center space-x-2">
-                      <Icon name="TrendingUp" className="text-primary" size={20} />
-                      <span>Банковская гарантия от 10 до 100 миллионов</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div 
-                      className={`border-2 border-dashed rounded-lg p-4 text-center transition-colors ${
-                        dragActive ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-primary/50'
-                      }`}
-                      onDragEnter={handleDrag}
-                      onDragLeave={handleDrag}
-                      onDragOver={handleDrag}
-                      onDrop={handleDrop}
-                    >
-                      <Icon name="Paperclip" size={32} className="mx-auto mb-2 text-gray-400" />
-                      <p className="text-sm mb-2">Загрузить документы</p>
-                      <input
-                        type="file"
-                        id="medium-upload"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        multiple
-                      />
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => document.getElementById('medium-upload')?.click()}
-                      >
-                        <Icon name="Paperclip" className="mr-2" size={16} />
-                        Выбрать файлы
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Large Guarantee Documents */}
-                <Card className="border border-gray-200">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center space-x-2">
-                      <Icon name="Crown" className="text-secondary" size={20} />
-                      <span>Банковская гарантия от 100 миллионов и выше</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div 
-                      className={`border-2 border-dashed rounded-lg p-4 text-center transition-colors ${
-                        dragActive ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-primary/50'
-                      }`}
-                      onDragEnter={handleDrag}
-                      onDragLeave={handleDrag}
-                      onDragOver={handleDrag}
-                      onDrop={handleDrop}
-                    >
-                      <Icon name="Paperclip" size={32} className="mx-auto mb-2 text-gray-400" />
-                      <p className="text-sm mb-2">Загрузить документы</p>
-                      <input
-                        type="file"
-                        id="large-upload"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        multiple
-                      />
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => document.getElementById('large-upload')?.click()}
-                      >
-                        <Icon name="Paperclip" className="mr-2" size={16} />
-                        Выбрать файлы
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {uploadedFiles.length > 0 && (
-                <div className="mt-6 space-y-2">
-                  <h4 className="font-medium">Загруженные файлы:</h4>
-                  {uploadedFiles.map((file, index) => (
-                    <div key={index} className="flex items-center space-x-2 p-2 bg-green-50 rounded">
-                      <Icon name="FileCheck" className="text-green-600" size={16} />
-                      <span className="text-sm">{file}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* Step 3: Details */}
-          <Card className="animate-scale-in">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <span>Шаг. Укажите ФЗ, точную сумму, срок и ссылку на тендер</span>
               </CardTitle>
             </CardHeader>
@@ -420,12 +240,7 @@ const Index = () => {
                   <Input id="tender-link" placeholder="https://zakupki.gov.ru/..." />
                 </div>
               </div>
-              <YandexFormModal>
-                <Button className="w-full" size="lg">
-                  <Icon name="Send" className="mr-2" size={20} />
-                  Подать заявку
-                </Button>
-              </YandexFormModal>
+
             </CardContent>
           </Card>
 
@@ -546,6 +361,15 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <YandexFormModal>
+                  <Button className="w-full max-w-md mx-auto" size="lg" id="submit-application">
+                    <Icon name="Send" className="mr-2" size={20} />
+                    Подать заявку
+                  </Button>
+                </YandexFormModal>
               </div>
             </CardContent>
           </Card>
