@@ -178,7 +178,7 @@ const Index = () => {
                 <div className="relative p-8 bg-gradient-to-br from-white to-amber-50 rounded-2xl border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <Icon name="Zap" className="mx-auto mb-6 text-amber-600" size={48} />
-                  <h3 className="font-bold text-lg mb-4 text-slate-900 text-center">Экспресс гарантия от 1 до 5 миллионов</h3>
+                  <h3 className="font-bold text-lg mb-4 text-slate-900 text-center">Экспресс гарантия от 1000 рублей до 5 миллионов</h3>
                   <div className="w-full py-3 px-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-xl text-center font-medium hover:shadow-lg transition-shadow">
                     Выбрать
                   </div>
@@ -266,7 +266,7 @@ const Index = () => {
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg flex items-center space-x-2">
                       <Icon name="Zap" className="text-secondary" size={20} />
-                      <span>Экспресс гарантия от 1 до 5 миллионов</span>
+                      <span>Экспресс гарантия от 1000 рублей до 5 миллионов</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
