@@ -105,68 +105,36 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-gray-100">
-      {/* Corporate Header */}
-      <div className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-                <Icon name="Building2" className="text-primary-foreground" size={24} />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-gray-900">БанкГарант</h1>
-                <p className="text-sm text-gray-600">Профессиональные банковские решения</p>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <div className="text-sm">
-                <span className="text-gray-500">Москва:</span>
-                <span className="font-mono ml-1 text-gray-900">{moscowTime}</span>
-              </div>
-              <div className="text-sm">
-                <span className="text-gray-500">Владивосток:</span>
-                <span className="font-mono ml-1 text-gray-900">{vladivostokTime}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
-      <div className="bg-white">
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Банковские гарантии
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20"></div>
+        <div className="relative container mx-auto px-4 py-16">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 animate-fade-in">
+              банковские гарантии <span className="text-blue-600 text-5xl md:text-6xl">.ru</span>
             </h1>
-            <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Надежные банковские гарантии для участия в государственных и коммерческих тендерах. 
-              Профессиональное сопровождение и оперативное оформление документов.
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8 animate-fade-in-delay">
+              Быстрое оформление банковских гарантий для участия в тендерах и государственных закупках
             </p>
             
-            {/* Key Benefits */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Shield" className="text-primary" size={24} />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">100% гарантия</h3>
-                <p className="text-sm text-gray-600">Полная защита ваших интересов</p>
+            {/* Time Display */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                <div className="text-xs text-slate-500 mb-1">Москва</div>
+                <div className="font-mono text-sm font-semibold text-slate-700">{moscowTime}</div>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Clock" className="text-primary" size={24} />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Быстро</h3>
-                <p className="text-sm text-gray-600">Оформление от 1 рабочего дня</p>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                <div className="text-xs text-slate-500 mb-1">Урал</div>
+                <div className="font-mono text-sm font-semibold text-slate-700">{uralTime}</div>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Award" className="text-primary" size={24} />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Надежно</h3>
-                <p className="text-sm text-gray-600">Лицензированный банк-партнер</p>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                <div className="text-xs text-slate-500 mb-1">Владивосток</div>
+                <div className="font-mono text-sm font-semibold text-slate-700">{vladivostokTime}</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                <div className="text-xs text-slate-500 mb-1">Сахалин</div>
+                <div className="font-mono text-sm font-semibold text-slate-700">{sakhalinTime}</div>
               </div>
             </div>
           </div>
@@ -181,98 +149,82 @@ const Index = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           
           {/* Step 1: Choose Guarantee Amount */}
-          <Card className="shadow-sm border-gray-200">
-            <CardHeader className="bg-gray-50 border-b border-gray-200">
-              <CardTitle className="flex items-center space-x-3 text-gray-900">
-                <Icon name="CreditCard" className="text-primary" size={20} />
-                <span>Выберите тип банковской гарантии</span>
+          <Card className="animate-scale-in">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Icon name="CreditCard" className="text-primary" />
+                <span>Выберите тип гарантии</span>
               </CardTitle>
-              <CardDescription className="text-gray-600">
-                Профессиональное оформление гарантий для различных сумм контрактов
+              <CardDescription>
+                Выберите подходящую сумму банковской гарантии для вашего тендера
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-8">
+            <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-2 hover:border-primary/20 bg-white" onClick={handleSelectGuarantee}>
+                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 500 тыс.</div>
-                    <div className="text-sm text-gray-600 mb-3">От 2.5% годовых</div>
-                    <Badge variant="outline" className="text-xs bg-gray-100">Малый бизнес</Badge>
+                    <div className="text-2xl font-bold text-primary mb-2">до 500К</div>
+                    <div className="text-sm text-muted-foreground mb-3">От 2.5% годовых</div>
+                    <Badge variant="secondary" className="text-xs">Малый бизнес</Badge>
                   </CardContent>
                 </Card>
-                <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-2 hover:border-primary/20 bg-white" onClick={handleSelectGuarantee}>
+                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 2 млн.</div>
-                    <div className="text-sm text-gray-600 mb-3">От 2.2% годовых</div>
-                    <Badge variant="outline" className="text-xs bg-gray-100">Средний бизнес</Badge>
+                    <div className="text-2xl font-bold text-primary mb-2">до 2М</div>
+                    <div className="text-sm text-muted-foreground mb-3">От 2.2% годовых</div>
+                    <Badge variant="secondary" className="text-xs">Средний бизнес</Badge>
                   </CardContent>
                 </Card>
-                <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-2 hover:border-primary/20 bg-white" onClick={handleSelectGuarantee}>
+                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">до 10 млн.</div>
-                    <div className="text-sm text-gray-600 mb-3">От 2.0% годовых</div>
-                    <Badge variant="outline" className="text-xs bg-gray-100">Крупный бизнес</Badge>
+                    <div className="text-2xl font-bold text-primary mb-2">до 10М</div>
+                    <div className="text-sm text-muted-foreground mb-3">От 2.0% годовых</div>
+                    <Badge variant="secondary" className="text-xs">Крупный бизнес</Badge>
                   </CardContent>
                 </Card>
-                <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-2 hover:border-primary/20 bg-white" onClick={handleSelectGuarantee}>
+                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary" onClick={handleSelectGuarantee}>
                   <CardContent className="pt-6 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">свыше 10 млн.</div>
-                    <div className="text-sm text-gray-600 mb-3">Индивидуально</div>
-                    <Badge variant="outline" className="text-xs bg-gray-100">Корпоративные клиенты</Badge>
+                    <div className="text-2xl font-bold text-primary mb-2">свыше 10М</div>
+                    <div className="text-sm text-muted-foreground mb-3">Индивидуально</div>
+                    <Badge variant="secondary" className="text-xs">VIP клиенты</Badge>
                   </CardContent>
                 </Card>
               </div>
             </CardContent>
           </Card>
 
-          {/* Step 2: Application Details */}
-          <Card className="shadow-sm border-gray-200">
-            <CardHeader className="bg-gray-50 border-b border-gray-200">
-              <CardTitle className="flex items-center space-x-3 text-gray-900">
-                <Icon name="FileText" className="text-primary" size={20} />
-                <span>Параметры заявки</span>
+          {/* Step 2: Details */}
+          <Card className="animate-scale-in">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Icon name="FileText" className="text-primary" />
+                <span>Детали заявки</span>
               </CardTitle>
-              <CardDescription className="text-gray-600">
-                Укажите основные параметры требуемой банковской гарантии
-              </CardDescription>
             </CardHeader>
-            <CardContent className="p-8 space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <Label htmlFor="fz" className="text-sm font-medium text-gray-900">Федеральный закон</Label>
-                  <Input 
-                    id="fz" 
-                    placeholder="44-ФЗ, 223-ФЗ, коммерческий тендер"
-                    className="border-gray-300 focus:border-primary"
-                  />
+            <CardContent className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="fz">Федеральный закон</Label>
+                  <Input id="fz" placeholder="44-ФЗ, 223-ФЗ и т.д." />
                 </div>
-                <div className="space-y-3">
-                  <Label htmlFor="amount" className="text-sm font-medium text-gray-900">Сумма гарантии</Label>
+                <div className="space-y-2">
+                  <Label htmlFor="amount">Сумма гарантии</Label>
                   <Input 
                     id="amount" 
                     placeholder="1 000 000 руб."
                     value={guaranteeAmount}
                     onChange={(e) => setGuaranteeAmount(e.target.value)}
-                    className="border-gray-300 focus:border-primary"
                   />
                 </div>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <Label htmlFor="term" className="text-sm font-medium text-gray-900">Срок действия гарантии</Label>
-                  <Input 
-                    id="term" 
-                    placeholder="до 31.12.2025"
-                    className="border-gray-300 focus:border-primary"
-                  />
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="term">Срок действия</Label>
+                  <Input id="term" placeholder="до 31.12.2024" />
                 </div>
-                <div className="space-y-3">
-                  <Label htmlFor="tender-link" className="text-sm font-medium text-gray-900">Ссылка на тендер</Label>
-                  <Input 
-                    id="tender-link" 
-                    placeholder="https://zakupki.gov.ru/..."
-                    className="border-gray-300 focus:border-primary"
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="tender-link">Ссылка на тендер</Label>
+                  <Input id="tender-link" placeholder="https://zakupki.gov.ru/..." />
                 </div>
               </div>
             </CardContent>
